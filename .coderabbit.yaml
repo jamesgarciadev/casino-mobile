@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://www.coderabbit.ai/integrations/schema.v2.json
+# CodeRabbit reviews pull requests on GitHub. Reference: https://docs.coderabbit.ai/reference/configuration
+# This repo has no code yet, so the instructions are placeholders to refine as the app takes shape.
+language: en-US
+
+reviews:
+  profile: chill
+  high_level_summary: true
+  review_status: true
+  collapse_walkthrough: true
+  estimate_code_review_effort: true
+  poem: false
+  auto_review:
+    enabled: true
+    drafts: false
+  path_filters:
+    - "!package-lock.json"
+  path_instructions:
+    - path: "**/*.{ts,tsx}"
+      instructions: |
+        TypeScript in strict mode. The player's token belongs in secure storage (expo-secure-store), never AsyncStorage.
+        Odds, total odds, payout and cash-out maths must match casino-be and casino-web: whole cents, rounding half up.
+  tools:
+    gitleaks:
+      enabled: true
+    # Our docs wrap at 120 columns and use wide tables, which the default markdownlint rules reject.
+    markdownlint:
+      enabled: false
+
+chat:
+  auto_reply: true
